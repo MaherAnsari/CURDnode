@@ -1,9 +1,3 @@
-Skip to content
- 
-Search…
-All gists
-Back to GitHub
-@MaherAnsari 
 
 Node.js project readme template
 # CURD API
@@ -56,6 +50,14 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
     $ git clone https://github.com/YOUR_USERNAME/PROJECT_TITLE
     $ cd PROJECT_TITLE
     $ yarn install or npm install
+## Create tables in MySQL database with SQL command
+
+## Users Table
+CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY id (id), username VARCHAR (255) NOT NULL, email VARCHAR (255) NOT NULL ,UNIQUE KEY email (email),password VARCHAR (255) NOT NULL, created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)
+
+## Todos Table
+
+CREATE TABLE todolist (id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY id (id), todo_title VARCHAR (255) NOT NULL, todo_desc VARCHAR (255) NOT NULL ,priority TINYINT (2) NOT NULL, created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)
 
 ## Configure app
 
