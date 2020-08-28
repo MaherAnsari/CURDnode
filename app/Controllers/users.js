@@ -20,11 +20,22 @@ module.exports = {
      
       db.query(user.addUser(), (err, result) => {
          if (err) {
-            res.status(400).json({
+            let msg=err.message
+            console.log(msg)
+            if(msg.includes('Duplicate entry')){
+               console.log('hek')
+               res.status(200).json({
+                  'status':false,
+                  'message':'User already exits',
+               })
+            }else{
+              res.status(400).json({
                'status':false,
                'error': err.message,
                'error_line': err.files
             })
+            }
+            
          };
          if(result){
             db.query(User.getUserById(result.insertId), (err, userData) => {
@@ -149,7 +160,7 @@ module.exports = {
     */
    login: (req, res, next) => {
       const body=req.body;
-      console.log(body)
+  
     db.query(User.getUserByEmail(body.email), (err, results) => {
       if(err){
          res.status(404).json({
@@ -163,7 +174,12 @@ module.exports = {
          message:'Invalid email or password'
       });
      }
-     const result=bcrypt.compareSync(body.password,results[0].password);
+     let result=false;
+     console.log(results[0])
+     if(results[0] !=undefined){
+       result=bcrypt.compareSync(body.password,results[0].password);
+       console.log(result)
+     }
      if(result){
          results[0].password=undefined;
          const jsontoken=sign({result:results[0]},"qwe1234",{
