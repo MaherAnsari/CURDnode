@@ -1,0 +1,2 @@
+# CURDnode
+practice project
