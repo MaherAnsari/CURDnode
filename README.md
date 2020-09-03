@@ -49,7 +49,7 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
     $ git clone https://github.com/YOUR_USERNAME/PROJECT_TITLE
     $ cd PROJECT_TITLE
-    $ yarn install or npm install
+    $ yarn install or npm install    
 ## Create tables in MySQL database with SQL command
 
 ## Users Table
@@ -58,6 +58,19 @@ CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY id (id), username
 ## Todos Table
 
 CREATE TABLE todolist (id INT NOT NULL AUTO_INCREMENT,PRIMARY KEY id (id), todo_title VARCHAR (255) NOT NULL, todo_desc VARCHAR (255) NOT NULL ,priority TINYINT (2) NOT NULL, created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)
+
+## For database connection 
+
+Create .env file and paste this code
+
+APP_PORT=4000
+DB_PORT=3306
+DB_HOST=localhost
+DB_USER=YOUR_USER_NAME
+DB_PASS=YOUR_PASSWORD
+MYSQL_DB=todo
+
+
 
 ## Configure app
 
@@ -69,7 +82,7 @@ Open `a/nice/path/to/a.file` then edit it with your settings. You will need:
 
 ## Running the project
 
-    $ yarn start
+    $ yarn start or npm start
 
 ## Simple build for production
 
